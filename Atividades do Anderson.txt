@@ -1,0 +1,133 @@
+1
+
+def fibonacci(n):
+    a,b = 1,1
+    for _ in range(n):
+        print(a, end=" ")
+        a, b =b, a + b
+n = int(input("digite o numero de termos da sequencia:"))
+fibonacci(n)
+
+
+
+
+
+
+2
+
+def diagonal_rain(matrix):
+    if not matrix:
+        return ""
+    
+    m, n = len(matrix), len(matrix[0])
+    result = ""
+    
+    for i in range(m + n - 1):
+        row, col = m - 1 - i, 0
+        while row < m and col < n:
+            result += matrix[row][col]
+            row += 1
+            col += 1
+    return result
+                
+matrix = [
+    ['A', 'B', 'C', 'D'],
+    ['E', 'F', 'G', 'H'],
+    ['I', 'J', 'K', 'L']
+]
+
+resultado = diagonal_rain(matrix)
+print("String concatenada da chuva diagonal:", resultado)
+
+
+
+
+
+
+
+
+
+3
+
+def collatz_sequencia(n):
+    sequencia = [n]
+    while n > 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3 * n + 1
+        sequencia.append(n)
+    return sequencia
+
+numero = int(input("Digite um número para gerar a sequência de Collatz: "))
+sequencia = collatz_sequencia(numero)
+print("A sequência de Collatz é:", sequencia)
+
+
+
+
+
+
+4
+
+def soma_digitos(numero):
+    soma = 0
+    while numero > 0:
+        soma += numero % 10
+        numero //= 10
+    return soma
+
+
+numero = int(input("Digite um número inteiro: "))
+resultado = soma_digitos(numero)
+print("A soma dos dígitos de", numero, "é", resultado)
+
+
+
+
+
+
+5
+
+def is_palindrome(word):
+    
+    word = word.lower().replace(" ", "")
+    
+    return word == word[::-1]
+
+palavra = input("Digite uma palavra para verificar se é um palíndromo: ")
+if is_palindrome(palavra):
+    print("É um palíndromo!")
+else:
+    print("Não é um palíndromo.")
+
+
+
+
+
+6
+def histograma_letras(string):
+    string = string.lower()
+    
+    histograma = {}
+    
+    for char in string:
+        if char.isalpha():
+            if char in histograma:
+                histograma[char] += 1
+            else:
+                histograma[char] = 1
+    
+    return histograma
+
+cadeia = input("Digite uma cadeia de caracteres: ")
+resultado = histograma_letras(cadeia)
+
+print("Histograma das letras:")
+for letra, frequencia in resultado.items():
+    print(f"{letra}: {frequencia}")
+
+
+
+
+
